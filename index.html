@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>No BS QR</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Uncomment to use old colorjs version -->
+  <!-- <script src="lib/jscolor/jscolor.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.5.2/jscolor.min.js"></script> 
+</head>
+
+<body>
+  <div id="controls" class="flex f-col f-just-center">
+    <label for="qr-text">URL / Text</label>
+    <input id="qr-text" name="qr-text" type="text" value="noBSqr.com">
+    <label for="qr-size">QR Size</label>
+    <input id="qr-size" name="qr-size" type="range" value="300" step="1" min="1" max="1000">
+    <label for="border-size">Border Size</label>
+    <input id="border-size" name="border-size" type="range" value="30" step="1" min="0" max="200">
+    <label for="text-size-adjustment">Text Size Adjustment</label>
+    <input id="text-size-adjustment" name="text-size-adjustment" type="range" value="0" step="1" min="-99" max="99">
+    <!-- Uncomment to use old colorjs version -->
+    <!-- <input id="bg-color" name="bg-color"   type="text" class="color" value="#ffffff"> -->
+    <!-- <input id="dot-color" name="dot-color" type="text" class="color" value="#000000"> -->
+    <label for="bg-color">Background Color</label>
+    <input id="bg-color" name="bg-color"   data-jscolor="{}" value="#FFFFFFFF">
+    <label for="dot-color">Pixel Color</label>
+    <input id="dot-color" name="dot-color" data-jscolor="{}" value="#000000FF">
+    <label for="pixel-rounding">Pixel Rounding</label>
+    <input id="pixel-rounding" name="pixel-rounding" type="range" value="0" step="1" min="0" max="100">
+    <label for="qr-text-pos">Text Position</label>
+    <select id="qr-text-pos" name="qr-text-pos">
+      <option value="hidden">Hidden</option>
+      <option value="top">Top</option>
+      <option value="center">Center</option>
+      <option value="bottom" selected="selected">Bottom</option>
+    </select>
+
+    <label for="qr-ecc">Error Correction Level</label>
+    <select id="qr-ecc" name="qr-ecc">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+
+  <div class="container flex f-col f-align-center f-just-center">
+    <div id="qr-output">
+    </div>
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
