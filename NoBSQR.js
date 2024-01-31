@@ -1,7 +1,11 @@
+// NoBSQR.js by NHV33 (Noel H. Vincent)
+//https://github.com/NHV33/NoBSQR.js
+
+//NoBSQR.js is a fork of VanillaQR.js by Chuck Fairy
 //https://github.com/chuckfairy/VanillaQR.js
-//VanillaQR Function constructor
+
+//Function constructor
 //pass an object with customizable options
-//url, colorLight, colorDark, width, height
 function NoBSQR ( customize ) {
 
     var scope = this;
@@ -43,15 +47,15 @@ function NoBSQR ( customize ) {
     scope.qrc = false;
 
     //QR colors
-    scope.colorLight = customize.colorLight || '#fff';
-    scope.colorDark = customize.colorDark || "#000";
+    scope.colorLight = customize.colorLight || '#FFFFFFFF';
+    scope.colorDark = customize.colorDark || "#000000FF";
 
     //Correction level
     scope.ecclevel = customize.ecclevel || 1;
 
     //Border related
     scope.noBorder = customize.noBorder;
-    scope.borderSize = customize.borderSize || 0;
+    scope.borderSize = customize.borderSize || 30;
 
     // Text Related
     scope.textDisplay = customize.textDisplay;
@@ -63,7 +67,7 @@ function NoBSQR ( customize ) {
     // Style Related
     scope.pixelRadius = customize.pixelRadius || 0;
 
-    // Automatice Text Resizing (these determine text resizing accuracy)
+    // Automatic Text Resizing (these determine text resizing accuracy)
     scope.textResizeIterationCap = customize.textResizeIterationCap || 1000;
     scope.textResizeAmount = customize.textResizeAmount || 1;
 
@@ -802,7 +806,7 @@ NoBSQR.prototype = {
             for( var j = 0; j < width; j++ ) {
                 if( qf[j*width+i] ) {
                     // Cut a hole for the pixel to support transparency, 
-                    // unless pixels are rounded or colorDark is not transparent.
+                    // unless pixels are rounded or colorDark is completely opaque.
                     if (pxRadius === 0 && pixelsTranslucent) {
                         qrc.clearRect(px * i + offset, px * j + offset, px * overdraw, px * overdraw);
                     }
@@ -826,7 +830,7 @@ NoBSQR.prototype = {
             (adjustPercent / 100) + 1;
         }
 
-        const paddingY = 0.8;
+        const paddingY = 0.7;
         const paddingX = 0.95;
         qrc.textAlign = "center";
         qrc.textBaseline = "middle";
@@ -1138,8 +1142,3 @@ NoBSQR.N1 = 3;
 NoBSQR.N2 = 3;
 NoBSQR.N3 = 40;
 NoBSQR.N4 = 10;
-/**
- * Module loading footer
- */
-
-export default NoBSQR;
