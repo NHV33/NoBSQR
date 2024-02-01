@@ -26,13 +26,13 @@
     <input id="qr-text" name="qr-text" type="text" value="" placeholder="Paste your link here.">
   </div>
 
-  <div class="qr-container flex f-col f-align-center f-just-center">
+  <div id="qr-container" class="qr-container flex f-col f-align-center f-just-center" tabindex="0">
     <div id="qr-output">
     </div>
   </div>
 
   <div id="download-section" class="container flex f-just-center f-align-center">
-    <div id="download-button" class="flex f-just-center f-align-center">
+    <div id="download-button" class="pending flex f-just-center f-align-center">
       <p>Download</p>
     </div>
   </div>
@@ -43,8 +43,6 @@
       <img id="settings-icon" src="assets/images/settings-icon.svg" alt="Settings">
     </div>
 
-    <!-- <label for="qr-text">URL / Text</label> -->
-    <!-- <input id="qr-text" name="qr-text" type="text" value="noBSqr.com"> -->
     <label for="qr-size">QR Size</label>
     <input id="qr-size" name="qr-size" type="range" value="300" step="1" min="1" max="1000">
     <label for="border-size">Border Size</label>

@@ -44,10 +44,25 @@ const settingsTab = document.getElementById("settings-tab")
 const settingsPanel = document.getElementById("settings-panel")
 
 // Slide Settings Panel
-settingsTab.addEventListener('click', () => {
+
+function slideSettings() {
 	(settingsPanel.classList.contains("slide-settings-in")) ?
 	swapClasses(settingsPanel, "slide-settings-in", "slide-settings-out"):
 	swapClasses(settingsPanel, "slide-settings-out", "slide-settings-in");
+}
+
+settingsTab.addEventListener('click', () => { slideSettings(); });
+
+const qrContainer = document.getElementById("qr-container");
+
+qrContainer.addEventListener('click', () => {
+	if (settingsPanel.classList.contains("slide-settings-in")) { slideSettings(); }
+});
+
+document.addEventListener('keyup', (event) => {
+	if (event.key === "Escape" && settingsPanel.classList.contains("slide-settings-in")) {
+		slideSettings();
+	}
 });
 
 function safeFilename(text) {
@@ -55,6 +70,8 @@ function safeFilename(text) {
 	const filename = text.match(allowedChars).join("-").slice(0, 33);
 	return filename
 }
+
+// Download Functionality
 
 async function download() {
     const a = document.createElement("a");
@@ -75,17 +92,15 @@ downloadButton.addEventListener('click', () => {
 	if (downloadButtonText.innerText !== saveMessage) {
 		download();
 		downloadButtonText.innerText = saveMessage
-		downloadButton.style.backgroundColor = "lightseagreen";
+		swapClasses(downloadButton, "pending", "success");
 	}
 });
 
 const qrTextBox = document.getElementById("qr-text");
 
-let prevValue = "";
-
 qrTextBox.addEventListener('input', () => {
 	downloadButtonText.innerText = "Download";
-	downloadButton.style.backgroundColor = "green";
+	swapClasses(downloadButton, "success", "pending");
 	(qrTextBox.value !== "") ?
 	downloadButton.style.visibility = "visible" :
 	downloadButton.style.visibility = "hidden";

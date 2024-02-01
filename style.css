@@ -40,6 +40,7 @@ body {
   font-family: monospace;
   font-size: 30px;
   user-select: none;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
 #top-panel {
@@ -94,6 +95,7 @@ body {
   bottom: 0px;
   left: 0px;
   overflow: visible;
+  outline: none;
 }
 
 #download-section {
@@ -109,7 +111,6 @@ body {
   color: white;
   font-family: monospace;
   font-size: 30px;
-  background-color: green;
   padding: 0px 30px 0px 30px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
   user-select: none;
@@ -118,11 +119,19 @@ body {
 }
 
 #download-button:hover {
-  background-color: rgb(66, 188, 66);
+  filter: brightness(0.9);
 }
 
 #download-button:active {
   scale: 0.95;
+}
+
+.success {
+  background-color: green;
+}
+
+.pending {
+  background-color: blue;
 }
 
 #settings-panel {
@@ -133,6 +142,7 @@ body {
   left: var(--settings-origin);
   border-radius: 0px 10px 0px 0px;
   z-index: 1;
+  outline: none;
 }
 
 #settings-panel label{
@@ -159,8 +169,13 @@ body {
   border-radius: 0px 10px 10px 0px;
 }
 
+#settings-tab:hover {
+  filter: brightness(0.9);
+}
+
 .panel-style {
   background-color:rgba(61, 120, 93, 0.95);
+  box-shadow: 4px 3px 3pt 0px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes slide-settings-in { from { left: var(--settings-origin); } to { left: var(--settings-destination); } }
