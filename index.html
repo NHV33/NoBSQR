@@ -4,17 +4,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>No BS QR</title>
+  <title>NoBSQR.com</title>
+
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#008987">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Styles -->
   <link href="style.css" rel="stylesheet" type="text/css" />
-  <!-- Uncomment to use old colorjs version -->
-  <!-- <script src="lib/jscolor/jscolor.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.5.2/jscolor.min.js"></script> 
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.5.2/jscolor.min.js"></script>
+  <script src="./NoBSQR.js"></script>
 </head>
 
 <body>
-  <div id="controls" class="flex f-col f-just-center">
-    <label for="qr-text">URL / Text</label>
-    <input id="qr-text" name="qr-text" type="text" value="noBSqr.com">
+  <div id="bg-filter"></div>
+  <div id="top-panel" class="panel-style flex f-just-center f-align-center">
+    <div id="logo-section" class="container flex f-align-center">
+      <img id="logo" src="assets/images/NoBSQR-logo.png" alt="">
+      <span id="logo-text">NoBSQR</span>
+    </div>
+  </div>
+
+  <div id="input-section" class="container flex f-just-center f-align-center">
+    <input id="qr-text" name="qr-text" type="text" value="" placeholder="Paste your link here.">
+  </div>
+
+  <div id="qr-container" class="qr-container flex f-col f-align-center f-just-center" tabindex="0">
+    <div id="qr-output">
+    </div>
+  </div>
+
+  <div id="download-section" class="container flex f-just-center f-align-center">
+    <div id="download-button" class="pending flex f-just-center f-align-center">
+      <p>Download</p>
+    </div>
+  </div>
+
+  <div id="settings-panel" class="panel-style flex f-col f-just-center" tabindex="0">
+    
+    <div id="settings-tab" class="panel-style flex f-just-center f-align-center">
+      <img id="settings-icon" src="assets/images/settings-icon.svg" alt="Settings">
+    </div>
+
     <label for="qr-size">QR Size</label>
     <input id="qr-size" name="qr-size" type="range" value="300" step="1" min="1" max="1000">
     <label for="border-size">Border Size</label>
@@ -47,10 +84,6 @@
     </select>
   </div>
 
-  <div class="container flex f-col f-align-center f-just-center">
-    <div id="qr-output">
-    </div>
-  </div>
   <script type="module" src="script.js"></script>
 </body>
 
